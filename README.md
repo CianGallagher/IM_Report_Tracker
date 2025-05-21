@@ -6,3 +6,12 @@
 6. ????????
 7. Profit
 
+Create A Flask Web App And Connect SQL Database - Python Tutorial
+https://www.youtube.com/watch?v=MKG5BpZbOa4
+
+sqlacademy & Flask docs
+https://docs.sqlalchemy.org/en/20/
+https://flask-sqlalchemy.readthedocs.io/en/stable/
+
+Quickstart
+https://flask.palletsprojects.com/en/stable/quickstart/

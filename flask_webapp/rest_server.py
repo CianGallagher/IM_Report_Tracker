@@ -1,6 +1,14 @@
-from flask import Flask, url_for, request, redirect, abort, render_template
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+# SQLite database defined
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reports.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Initializes the database
+db = SQLAlchemy(app)
 
 @app.route('/')
 def home():
