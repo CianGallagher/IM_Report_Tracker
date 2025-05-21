@@ -6,7 +6,18 @@
     <title>IM Report Tracker</title>
 </head>
 <body>
-    <h2>reporting test</h2>
-    
+    <h1>Reports</h1>
+    <ul>
+        {% for report in reports %}
+            <li>
+                {{ report.Investment_advisor_name }}
+                <br>
+                Fund: {{ report.fund_name }}
+                <br>
+                Status: {{ report.status }}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
 </body>
 </html>

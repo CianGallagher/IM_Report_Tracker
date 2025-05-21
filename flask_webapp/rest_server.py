@@ -19,7 +19,23 @@ class Report(db.Model):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    reports = Report.query.all()
+    return render_template('index.html', reports=reports)
+
+@app.route('/test_report')
+def add_test_report():
+    sample_report = Report(
+        Investment_advisor_name="Big Company",
+        fund_name="Big Company Pension Fund",
+        sub_fund_name="Emerging Markets Equity",
+        delegate_name="State Street",
+        reporting_period="Q1 2025",
+        status="Received",
+        comments="Report received on time per SLA",
+    )
+    db.session.add(sample_report)
+    db.session.commit()
+    return "Test report added!"
 
 if __name__ == '__main__':
     with app.app_context():
