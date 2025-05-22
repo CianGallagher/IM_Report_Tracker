@@ -37,8 +37,24 @@ def add_test_report():
     db.session.commit()
     return "Test report added!"
 
+@app.route('/submit_report')
+def submit_report():
+    report = Report(
+        Investment_advisor_name="Test IA",
+        fund_name="Test Fund",
+        sub_fund_name="Test Sub-Fund",
+        delegate_name="Test Delegate",
+        reporting_period="Q1 2025",
+        report_date=date.today(),
+        status="Pending",
+        comments="Test entry"
+    )
+    db.session.add(report)
+    db.session.commit()
+    return "Basic test report submitted"
+
 @app.route('/api/reports', methods=['GET'])
-def get_reports():
+def return_json_reports():
     reports = Report.query.all()
     return jsonify([
         {

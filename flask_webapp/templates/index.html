@@ -2,22 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IM Report Tracker</title>
 </head>
 <body>
+    <h1>Submitted Reports</h1>
     <h1>Reports</h1>
-    <ul>
-        {% for report in reports %}
-            <li>
-                {{ report.Investment_advisor_name }}
-                <br>
-                Fund: {{ report.fund_name }}
-                <br>
-                Status: {{ report.status }}
-            </li>
-            <hr>
-        {% endfor %}
-    </ul>
+    {% for report in reports %}
+      <p>
+        <strong>{{ report.Investment_advisor_name }}</strong><br>
+        Status: {{ report.status }}
+      </p>
+      <hr>
+    {% endfor %}
 </body>
 </html>
