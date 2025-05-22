@@ -1,5 +1,5 @@
 from datetime import date
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -36,6 +36,23 @@ def add_test_report():
     db.session.add(sample_report)
     db.session.commit()
     return "Test report added!"
+
+@app.route('/api/reports', methods=['GET'])
+def get_reports():
+    reports = Report.query.all()
+    return jsonify([
+        {
+            'id': report.id,
+            'investment_advisor_name': report.Investment_advisor_name,
+            'fund_name': report.fund_name,
+            'sub_fund_name': report.sub_fund_name,
+            'delegate_name': report.delegate_name,
+            'reporting_period': report.reporting_period,
+            'report_date': report.report_date.strftime('%Y-%m-%d'),
+            'status': report.status,
+            'comments': report.comments
+        } for report in reports
+    ])
 
 if __name__ == '__main__':
     with app.app_context():
