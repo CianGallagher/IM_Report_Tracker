@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Report</title>
+</head>
+<body>
+    <h1>Edit Report</h1>
+    <form method="POST">
+        <input name="Investment_advisor_name" value="{{ report.Investment_advisor_name }}" required><br>
+        <input name="fund_name" value="{{ report.fund_name }}" required><br>
+        <input name="sub_fund_name" value="{{ report.sub_fund_name }}" required><br>
+        <input name="delegate_name" value="{{ report.delegate_name }}" required><br>
+        <input name="reporting_period" value="{{ report.reporting_period }}" required><br>
+        <input name="status" value="{{ report.status }}" required><br>
+        <input name="comments" value="{{ report.comments }}"><br><br>
+        <button type="submit">Update Report</button>
+    </form>
+</body>
+</html>

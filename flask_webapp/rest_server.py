@@ -71,6 +71,23 @@ def return_json_reports():
         } for report in reports
     ])
 
+@app.route('/edit_report/<int:report_id>', methods=['GET', 'POST'])
+def edit_report(report_id):
+    report = Report.query.get_or_404(report_id)
+
+    if request.method == 'POST':
+        report.Investment_advisor_name = request.form['Investment_advisor_name']
+        report.fund_name = request.form['fund_name']
+        report.sub_fund_name = request.form['sub_fund_name']
+        report.delegate_name = request.form['delegate_name']
+        report.reporting_period = request.form['reporting_period']
+        report.status = request.form['status']
+        report.comments = request.form['comments']
+        db.session.commit()
+        return redirect(url_for('home'))
+
+    return render_template('edit_form.html', report=report)
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

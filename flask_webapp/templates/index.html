@@ -18,6 +18,7 @@
       <th>Date</th>
       <th>Status</th>
       <th>Comments</th>
+      <th>Actions</th>
     </tr>
     {% for report in reports %}
     <tr>
@@ -29,13 +30,15 @@
       <td>{{ report.report_date }}</td>
       <td>{{ report.status }}</td>
       <td>{{ report.comments }}</td>
+      <td>
+        <a href="{{ url_for('edit_report', report_id=report.id) }}">Edit</a>
+      </td>
     </tr>
     {% endfor %}
   </table>
 {% else %}
   <p>No reports submitted yet.</p>
 {% endif %}
-
 
     <h2>Add New Report</h2>
     <form method="POST" action="/submit_report">
