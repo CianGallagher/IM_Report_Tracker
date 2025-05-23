@@ -7,14 +7,35 @@
 <body>
     <h1>Submitted Reports</h1>
 
+{% if reports %}
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Advisor</th>
+      <th>Fund</th>
+      <th>Sub-Fund</th>
+      <th>Delegate</th>
+      <th>Period</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Comments</th>
+    </tr>
     {% for report in reports %}
-      <p>
-        <strong>{{ report.Investment_advisor_name }}</strong>
-        <br>
-        Status: {{ report.status }}
-      </p>
-      <hr>
+    <tr>
+      <td>{{ report.Investment_advisor_name }}</td>
+      <td>{{ report.fund_name }}</td>
+      <td>{{ report.sub_fund_name }}</td>
+      <td>{{ report.delegate_name }}</td>
+      <td>{{ report.reporting_period }}</td>
+      <td>{{ report.report_date }}</td>
+      <td>{{ report.status }}</td>
+      <td>{{ report.comments }}</td>
+    </tr>
     {% endfor %}
+  </table>
+{% else %}
+  <p>No reports submitted yet.</p>
+{% endif %}
+
 
     <h2>Add New Report</h2>
     <form method="POST" action="/submit_report">

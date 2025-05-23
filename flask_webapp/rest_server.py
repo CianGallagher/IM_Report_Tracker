@@ -1,5 +1,5 @@
 from datetime import date
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -37,8 +37,6 @@ def add_test_report():
     db.session.commit()
     return "Test report added!"
 
-from flask import request, redirect
-
 @app.route('/submit_report', methods=['POST'])
 def submit_report():
     report = Report(
@@ -53,7 +51,7 @@ def submit_report():
     )
     db.session.add(report)
     db.session.commit()
-    return redirect('/')
+    return redirect(url_for('home'))
 
 
 @app.route('/api/reports', methods=['GET'])
