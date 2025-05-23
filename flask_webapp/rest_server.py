@@ -37,21 +37,24 @@ def add_test_report():
     db.session.commit()
     return "Test report added!"
 
-@app.route('/submit_report')
+from flask import request, redirect
+
+@app.route('/submit_report', methods=['POST'])
 def submit_report():
     report = Report(
-        Investment_advisor_name="Test IA",
-        fund_name="Test Fund",
-        sub_fund_name="Test Sub-Fund",
-        delegate_name="Test Delegate",
-        reporting_period="Q1 2025",
-        report_date=date.today(),
-        status="Pending",
-        comments="Test entry"
+        Investment_advisor_name=request.form['Investment_advisor_name'],
+        fund_name=request.form['fund_name'],
+        sub_fund_name=request.form['sub_fund_name'],
+        delegate_name=request.form['delegate_name'],
+        reporting_period=request.form['reporting_period'],
+        report_date=date.today(),  
+        status=request.form['status'],
+        comments=request.form['comments']
     )
     db.session.add(report)
     db.session.commit()
-    return "Basic test report submitted"
+    return redirect('/')
+
 
 @app.route('/api/reports', methods=['GET'])
 def return_json_reports():

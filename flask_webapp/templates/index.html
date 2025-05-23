@@ -6,39 +6,33 @@
 </head>
 <body>
     <h1>Submitted Reports</h1>
-    <h1>Reports</h1>
+
     {% for report in reports %}
       <p>
-        <strong>{{ report.Investment_advisor_name }}</strong><br>
+        <strong>{{ report.Investment_advisor_name }}</strong>
+        <br>
         Status: {{ report.status }}
       </p>
       <hr>
     {% endfor %}
-    
+
     <h2>Add New Report</h2>
-<form action="/submit_report" method="post">
-  <label for="Investment_advisor_name">Investment Advisor Name:</label><br>
-  <input type="text" name="Investment_advisor_name"><br>
-
-  <label for="fund_name">Fund Name:</label><br>
-  <input type="text" name="fund_name"><br>
-
-  <label for="sub_fund_name">Sub Fund Name:</label><br>
-  <input type="text" name="sub_fund_name"><br>
-
-  <label for="delegate_name">Delegate Name:</label><br>
-  <input type="text" name="delegate_name"><br>
-
-  <label for="reporting_period">Reporting Period:</label><br>
-  <input type="text" name="reporting_period"><br>
-
-  <label for="status">Status:</label><br>
-  <input type="text" name="status"><br>
-
-  <label for="comments">Comments:</label><br>
-  <input type="text" name="comments"><br><br>
-
-  <input type="submit" value="Submit">
-</form>
+    <form method="POST" action="/submit_report">
+      <input name="Investment_advisor_name" placeholder="Advisor Name" required>
+      <br>
+      <input name="fund_name" placeholder="Fund Name" required>
+      <br>
+      <input name="sub_fund_name" placeholder="Sub-Fund Name" required>
+      <br>
+      <input name="delegate_name" placeholder="Delegate Name" required>
+      <br>
+      <input name="reporting_period" placeholder="Reporting Period" required>
+      <br>
+      <input name="status" placeholder="Status" required>
+      <br>
+      <input name="comments" placeholder="Comments">
+      <br><br>
+      <button type="submit">Submit Report</button>
+    </form>
 </body>
 </html>
