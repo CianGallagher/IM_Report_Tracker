@@ -53,6 +53,22 @@ def submit_report():
     db.session.commit()
     return redirect(url_for('home'))
 
+@app.route('/api/reports', methods=['POST'])
+def api_create_report():
+    data = request.get_json()
+    report = Report(
+        Investment_advisor_name=data['Investment_advisor_name'],
+        fund_name=data['fund_name'],
+        sub_fund_name=data['sub_fund_name'],
+        delegate_name=data['delegate_name'],
+        reporting_period=data['reporting_period'],
+        report_date=date.today(),
+        status=data['status'],
+        comments=data.get('comments', '')
+    )
+    db.session.add(report)
+    db.session.commit()
+    return jsonify({'message': 'created'}), 201
 
 @app.route('/api/reports', methods=['GET'])
 def return_json_reports():
