@@ -35,7 +35,7 @@ def add_test_report():
     )
     db.session.add(sample_report)
     db.session.commit()
-    return "Test report added!"
+    return "Test report added successfully!"
 
 @app.route('/submit_report', methods=['POST'])
 def submit_report():
