@@ -111,6 +111,10 @@ def delete_report(report_id):
     db.session.commit()
     return redirect(url_for('home'))
 
+@app.route('/ajax')
+def ajax_page():
+    return render_template('ajax.html')
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

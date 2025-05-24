@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports via AJAX</title>
+</head>
+<body>
+    <h2>Reports List</h2>
+    <div id="report-container"></div>
+
+    <script>
+        fetch('/api/reports')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                var container = document.getElementById('report-container');
+                data.forEach(function(report) {
+                    var div = document.createElement('div');
+                    div.innerHTML = '<p><strong>' + report.investment_advisor_name + '</strong> - ' + report.fund_name + ' - ' + report.status + '</p>';
+                    container.appendChild(div);
+                });
+            });
+    </script>
+</body>
+</html>
+
+
