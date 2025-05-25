@@ -1,10 +1,12 @@
-Report Dashboard
+##Report Dashboard
 
 A simple Flask web application that tracks reports stored in an SQLite database.
 
 Live demo: https://gallybear.pythonanywhere.com/
 
-#Features
+**Please note that this app is configured to run on pythonanywhere so running locally may require minor path/environment tweaks**
+
+##Features
 
     Create, Read, Update, Delete report entries for keeping track of Investment Manager reporting
 
@@ -20,7 +22,7 @@ Live demo: https://gallybear.pythonanywhere.com/
 
         Test data via /test_report
 
-#Tech Stack
+##Tech Stack
 
     Python 3
 
@@ -32,7 +34,7 @@ Live demo: https://gallybear.pythonanywhere.com/
     
     Javascript (Ajax)
 
-#Routes
+##Routes
 
     [/] — View all reports
 
@@ -42,7 +44,7 @@ Live demo: https://gallybear.pythonanywhere.com/
 
     [/api/reports] — API GET/POST endpoints in JSON
 
-#Project Structure
+##Project Structure
 
     flask_webapp/
     ├── templates/
@@ -53,17 +55,16 @@ Live demo: https://gallybear.pythonanywhere.com/
     │   └── reports.db (created automatically)
     └── app.py
 
-#Clone the repository:
+##Clone the repository:
 
 git clone https://github.com/CianGallagher/IM_Report_Tracker.git
 
 
-#Deployment
+##Deployment
 
-This app is deployed on PythonAnywhere. The database is stored in the instance/ directory, and WSGI is configured to point to flask_webapp.app.
+This app is deployed on PythonAnywhere and is configured as such. The database is stored in the instance directory, and WSGI is configured to point to flask_webapp.app.
 
 #Reference Material 
-
 
     Flask Official Quickstart — General structure of the app and routing logic
     https://flask.palletsprojects.com/en/stable/quickstart/
