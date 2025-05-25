@@ -44,14 +44,14 @@ Live demo: https://gallybear.pythonanywhere.com/
 
 #Project Structure
 
-flask_webapp/
-├── templates/
-│   ├── index.html
-│   ├── edit_form.html
-│   └── ajax.html
-├── instance/
-│   └── reports.db (created automatically)
-└── app.py
+    flask_webapp/
+    ├── templates/
+    │   ├── index.html
+    │   ├── edit_form.html
+    │   └── ajax.html
+    ├── instance/
+    │   └── reports.db (created automatically)
+    └── app.py
 
 #Clone the repository:
 
